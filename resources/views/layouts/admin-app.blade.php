@@ -31,11 +31,27 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         @if(Auth::guard('admin')->check())
-                        <li><a href="{{ route('admin.logout') }}">Logout</a></li>
-                        @endif
+                        <li class="nav-item"><a class="nav-link" href="#">Role</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Department</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Form Setup</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Position</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('admin.logout') }}">
+                                        {{ __('Logout') }}
+                                    </a>
+                                </div>
+                            </li>
+                    </ul>
+                    @endif
                 </div>
             </div>
         </nav>
